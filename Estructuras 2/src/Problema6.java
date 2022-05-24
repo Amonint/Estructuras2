@@ -4,7 +4,7 @@ public class Problema6 {
     public static void main(String[] args) {
         // Entrada y declaracion de variables
         Scanner entrada = new Scanner(System.in);
-        System.out.println("***** MENÚ *****\n"
+        System.out.println("MENÚ \n"
                 + "1. Multiplicacion de matrices\n"
                 + "2. Suma de matrices\n"
                 + "3. Resta de matrices\n"
