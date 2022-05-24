@@ -2,13 +2,11 @@ import java.util.Scanner;
 
 public class Problema4 {
     public static void main(String[] args) {
-        // Entrada y declaracion de variables
         Scanner entrada = new Scanner(System.in);
         int A[][] = new int[20][5];
         double suma = 0, media = 0, suma_media = 0, media_total = 0;
         double suma2 = 0, media2 = 0;
         double ceros = 0;
-        // Proceso por alumno
         for (int i = 0; i < A.length; i++) {
             System.out.println("Introduzca la nota del estudiante " + i + ":");
             suma = 0;
@@ -24,7 +22,6 @@ public class Problema4 {
         }
         media_total = suma_media / 20;
         System.out.println("La media general de la clase es: " + media_total);
-        // Proceso por asignatura y faltas
         for (int j = 0; j < 5; j++) {
             suma2 = 0;
             for (int i = 0; i < 20; i++) {
