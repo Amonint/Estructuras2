@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class Problema7 {
     public static void main(String[] args) {
-        Scanner datos = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         int i = 0, j = 0;
         System.out.println("Ingrese el tamaño de la matriz:");
-        int lim = datos.nextInt();
+        int lim = entrada.nextInt();
         int matriz[][] = new int[lim][lim];
         for (i = 0; i < lim; i++) {
             for (j = 0; j < lim; j++) {
                 System.out.println("Ingrese el elemento (" + i + "," + j + ")");
-                matriz[i][j] = datos.nextInt();
+                matriz[i][j] = entrada.nextInt();
 
             }
         }
