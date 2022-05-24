@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Problema6 {
     public static void main(String[] args) {
-
+        // Entrada y declaracion de variables
         Scanner entrada = new Scanner(System.in);
         System.out.println("MENÚ \n"
                 + "1. Multiplicacion de matrices\n"
@@ -13,8 +13,25 @@ public class Problema6 {
         int op = entrada.nextInt();
         switch (op) {
             case 1:
+                System.out.println("Introduzca el tamaño de las matrics:");
+                int lim1 = entrada.nextInt();
+                int mul1[][] = new int[lim1][lim1];
+                int mul2[][] = new int[lim1][lim1];
+                int n = mul1[0].length;
+                int m = mul1.length;
+                int n2 = mul2.length;
+                int o = mul2[0].length;
+                int[][] Zi = new int[m][o];
+                if (n == n2) {
+                    for (int i = 0; i < n - 1; i++) {
+                        int a = 0;
+                        for (int j = 0; j < n2 - 1; j++) {
 
+                            a = a + (mul1[i][j] * mul2[j][i]);
+                        }
 
+                    }
+                }
                 break;
             case 2:
                 System.out.println("Introduzca el tamaño de las matrices:");
