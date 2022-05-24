@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Problema6 {
     public static void main(String[] args) {
-        // Entrada y declaracion de variables
+
         Scanner entrada = new Scanner(System.in);
         System.out.println("MENÚ \n"
                 + "1. Multiplicacion de matrices\n"
@@ -13,7 +13,7 @@ public class Problema6 {
         int op = entrada.nextInt();
         switch (op) {
             case 1:
-                // A[axb], B[bxa]
+
 
                 break;
             case 2:
