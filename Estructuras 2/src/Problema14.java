@@ -2,17 +2,14 @@ import java.util.Scanner;
 
 public class Problema14 {
     public static void main(String[] args) {
-       
-        Scanner teclado = new Scanner(System.in);
-       
+        Scanner entrada = new Scanner(System.in);
         int n, m;
         boolean numeroCorrecto = false;
-       
         do {
             System.out.print("Ingrese cantidad filas (número impar): ");
-            n = teclado.nextInt();
+            n = entrada.nextInt();
             System.out.print("Ingrese cantidad columnas (número impar): ");
-            m = teclado.nextInt();
+            m = entrada.nextInt();
            
             if(n % 2 != 0 && m % 2 != 0) {
                 numeroCorrecto = true;
