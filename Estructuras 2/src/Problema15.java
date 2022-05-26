@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class Problema15 {
     public class CruzArray {
         public static void main(String[] args) {
-            Scanner teclado = new Scanner(System.in);
+            Scanner entrada = new Scanner(System.in);
             boolean numeroCorrecto = false;
             int n,m;
             do {
                 System.out.print("Ingrese cantidad filas (número impar): ");
-                n = teclado.nextInt();
+                n = entrada.nextInt();
                 System.out.print("Ingrese cantidad columnas (número impar): ");
-                m = teclado.nextInt();
+                m = entrada.nextInt();
                 if(n % 2 != 0 && m % 2 != 0) {
                     numeroCorrecto = true;
                 }else {
