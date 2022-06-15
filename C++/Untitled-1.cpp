@@ -16,6 +16,7 @@ void insertar(Nodo **actual, int dato);
 void recorrer(Nodo *actual);
 void insertarF(Nodo **cabeza, Nodo **final, int n);
 void buscar(Nodo *actual, int num);
+void eliminar(Nodo **cabeza, Nodo **final, int n);
 
 int main()
 {
@@ -24,9 +25,9 @@ int main()
     {
         cout << "Insertar [1]: " << endl
              << "Recorrer [2]: " << endl
-             << "Buscar [3]: " << endl;
+             << "Buscar   [3]: " << endl;
         << "Eliminar [4]: " << endl;
-        << "Salir [0]: " << endl;
+        << "Salir    [0]: " << endl;
 
         cin >> op;
         switch (op)
@@ -137,8 +138,8 @@ void buscar(Nodo *actual, int num)
 }
 void eliminar(Nodo **cabeza, Nodo **final, int n)
 {
-    *Nodo aux;
-    *Nodo actual;
+    Nodo *aux;
+    Nodo *actual;
     if (*cabeza == NULL)
     {
         cout << "No hay nada que eliminar...";
@@ -151,17 +152,32 @@ void eliminar(Nodo **cabeza, Nodo **final, int n)
             *cabeza = NULL;
             *final == NULL;
             delete (aux);
-        }else{
+        }
+        else
+        {
             cout << "El elememto no existe...";
         }
-    }else{
-        actual=*cabeza;
-        while (actual->sig ->dato!=n)
+    }
+    else
+    {
+        actual = *cabeza;
+        while ((actual->sig != NULL) && (actual->sig->dato != n))
         {
-            actual=actual->sig;
+            actual = actual->sig;
         }
-        aux=actual->sig;
-        actual->sig=aux->sig;
-        delete (aux); 
+        if (actual->sig == NULL)
+        {
+            cout << "El elememto no existe...";
+        }
+        else
+        {
+            aux = actual->sig;
+            actual->sig = aux->sig;
+            if (aux->sig == NULL)
+            {
+                *final == actual;
+                delete (aux);
+            }
+        }
     }
 }
