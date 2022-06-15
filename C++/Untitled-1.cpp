@@ -98,3 +98,15 @@ bool listavacia(Nodo* actual){
                        
                        }
                 }
+                void buscar(Nodo*actual, int num){
+                    while (actual!=NULL)
+                    {
+                        if(actual->dato==num){
+                            cout<<"Si esta...";
+                            break;
+                        }
+                        actual=actual->sig;
+                        cout<<"No Esta...";
+                    }
+                    
+                }
