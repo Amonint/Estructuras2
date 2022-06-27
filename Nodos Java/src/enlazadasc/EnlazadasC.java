@@ -4,11 +4,6 @@
  */
 package enlazadasc;
 
-
-/**
- *
- * @author gilbertsolanosotomayor
- */
 public class EnlazadasC {
 
     /**
@@ -18,15 +13,16 @@ public class EnlazadasC {
         // TODO code application logic here
         MetodosEB obj = new MetodosEB();
         int op;
-        do{
-            op=obj.menu();
+        do {
+            op = obj.menu();
             switch (op) {
                 case 1 -> obj.ingresarF();
                 case 2 -> obj.recorrer();
+                case 3 -> obj.eliminar();
                 default -> {
                 }
             }
-        }while(op!=0);
+        } while (op != 0);
     }
-    
+
 }

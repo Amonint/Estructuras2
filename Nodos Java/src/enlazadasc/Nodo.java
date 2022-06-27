@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package enlazadasc;
-
-
 public class Nodo {
     Persona alumno;
     Nodo sig;
