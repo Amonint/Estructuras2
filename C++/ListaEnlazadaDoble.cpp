@@ -23,22 +23,18 @@ int main()
     int op, num;
     do
     {
-        cout << "Insertar [1]: " << endl
-             << "Recorrer [2]: " << endl
-             << "Buscar   [3]: " << endl;
-        << "Eliminar [4]: " << endl;
-        << "Salir    [0]: " << endl;
-
-        cin >> op;
+        op=menu();
         switch (op)
         {
         case 1:
             cout << "Digite elemento: ";
             cin >> num;
-            insertarF(&head, &end, num);
+            insertar(&raiz, num);
             break;
         case 2:
-            recorrer(head);
+            preOrder(raiz);
+            cout<<endl
+            inOrder(raiz);
             break;
         case 3:
             cout << "Digite elemento: ";
@@ -141,6 +137,21 @@ void inOrder(Nodo* actual){
         inOrder(actual->izq);
         cout<<actual->dato<<" ";
         inOrder
+    }
+}
+void preOrder(Nodo* actual){
+    if(actual != NULL){
+        inOrder(actual->izq);
+        cout<<actual->dato<<" ";
+        preOrder
+    }
+}
+void posOrden(Nodo* actual){
+    if(actual != NULL){
+        posOrden(actual->izq);
+        posOrden(actual->izq);
+        cout<<actual->dato<<" ";
+      
     }
 }
 int menu(){
