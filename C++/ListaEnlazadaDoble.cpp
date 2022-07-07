@@ -91,6 +91,7 @@ void reemplazar(Nodo** actual){
     }else{
         p->der=a->izq
     }
+    *actual = a;
 
 }
 
