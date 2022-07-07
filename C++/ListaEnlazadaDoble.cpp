@@ -61,7 +61,7 @@ void posOrder(Nodo* actual){
 }
 void eliminar(nodo**actual,int num){
     if(*actual==NULL)
-    cout<<"Elemento no es en el arbol";
+    cout<<"Elemento no es en el arbol"endl;
     else if((*actual)->dato < num)
     eliminar(&(*actual)->der,num);
     else if((actual))->dato > num)
@@ -106,7 +106,14 @@ int main(){
                 insertar(&raiz, num);
                 break;
             case 2:
-                inOrden(raiz);
+                preOrden(raiz);
+                cout<<endl;
+                posOrder(raiz);
+                break;
+             case 3:
+               cout<<"Ingrese dato a eliminar : ";
+                cin>>num;
+                eliminar(&raiz,num);
                 break;
             default:
                 break;
