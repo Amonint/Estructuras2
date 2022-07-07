@@ -153,4 +153,13 @@ public class ListaDoble {
 
     public void insertar(int i, int num) {
     }
+
+    public void borrar(int num) {
+    }
+
+    public void intercambiar(int num, int num2) {
+    }
+
+    public void imprimir() {
+    }
 }

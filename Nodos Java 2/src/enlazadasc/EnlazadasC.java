@@ -22,6 +22,7 @@ public class EnlazadasC {
                case 2: obj.preOrden(obj.raiz);
                obj.inOrden(obj.raiz);
                obj.posOrden(obj.raiz);
+               
             }
         } while (op != 0);
     }

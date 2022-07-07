@@ -13,6 +13,7 @@ public class MetodosABB {
         int opc;
         System.out.println("Ingresar nuevo elemento [1]:");
         System.out.println("Recorrer lista [2]: ");
+        System.out.println("Eliminar Nodo");
         System.out.println("Salir [0]: ");
         opc = entrada.nextInt();
 

@@ -1,135 +1,41 @@
 #include <iostream>
-#include <stdlib.h>
-
 using namespace std;
 
-struct Nodo
-{
+struct Nodo{
     int dato;
-    Nodo *sig;
-};
-
-Nodo *head = NULL;
-Nodo *end = NULL;
-Nodo *crear(int _dato);
-void insertar(Nodo **actual, int dato);
-void recorrer(Nodo *actual);
-void insertarF(Nodo **cabeza, Nodo **final, int n);
-void buscar(Nodo *actual, int num);
-void eliminar(Nodo **cabeza, Nodo **final, int n);
-
-int main()
-{
-    int op, num;
-    do
-    {
-        op=menu();
-        switch (op)
-        {
-        case 1:
-            cout << "Digite elemento: ";
-            cin >> num;
-            insertar(&raiz, num);
-            break;
-        case 2:
-            preOrder(raiz);
-            cout<<endl
-            inOrder(raiz);
-            break;
-        case 3:
-            cout << "Digite elemento: ";
-            cin >> num;
-            buscar(head, num);
-            break;
-        case 4:
-            cout << "Digite elemento a eliminar: ";
-            cin >> num;
-            eliminar(&head, &end, num);
-            break;
-        default:
-            break;
-        }
-    } while (op != 0);
-    /* system("pause"); */
-    return 0;
+    struct Nodo *izq;
+    struct Nodo *der;
+}
+struct Nodo* raiz=NULL;
+int menu(){
+    int op;
+    cout<<"Ingresar Elemento";
+    cout<<"Ingresar Elemento";
+    cout<<"Ingresar Elemento";
+    cin>>op;
+    return op;
 }
 
-Nodo *crear(int _dato)
-{
-    Nodo *nuevo = new Nodo;
-    nuevo->dato = _dato;
-    nuevo->sig = NULL;
-    return nuevo;
-}
-void insertar(Nodo **actual, int dato)
-{
-    Nodo *aux = crear(dato);
-    aux->sig = *actual;
-    *actual = aux;
+Nodo* crearNodo(int _dato){
+    *Nodo actual;
+    actual=(struct Nodo*)malloc(sizeof(struct Nodo));
+    actual->dato=_dato;
 }
 
-void recorrer(Nodo *actual)
-{
-    while (actual != NULL)
-    {
-        cout << actual->dato << " ";
-        actual = actual->sig;
-    }
-    cout << endl;
-}
-/*
-bool listavacia(Nodo* actual){
-    if(actual==NULL)
-        return true;
-    else
-        return false;
-}*/
-/*
- void insertarF(Nodo** head, int dato){
-    Nodo* aux=crear(dato);
-    if(*head==NULL)
-        *head=aux;
+
+void insertar(Nodo** actual, int _dato){
+    if(*actual==NULL)
+        *actual=crearNodo(_dato);
     else{
-        Nodo* ac=*head;
-        while (ac->sig!=NULL)
-            ac=ac->sig;
-            ac->sig=aux;
-
-
+        if((*actual)->dato==_dato)
+            cout<<"No se puede ingresar elementos repetidos";
+        else{
+            if((*actual)->dato>_dato)
+                insertar(&(*actual)->izq, _dato);
+            else
+                insertar(&(*actual)->der, _dato);
+                
         }
-      */
-void insertarF(Nodo **cabeza, Nodo **final, int n)
-{
-    Nodo *aux = crear(n);
-    if (*cabeza == NULL)
-    {
-        *cabeza = aux;
-        *final = aux;
-    }
-    else
-    {
-        (*final)->sig = aux;
-        *final = (*final)->sig;
-    }
-}
-void buscar(Nodo *actual, int num)
-{
-    int bandera = 0;
-    while (actual != NULL)
-    {
-        if (actual->dato == num)
-        {
-            bandera = 1;
-        }
-        actual = actual->sig;
-    }
-    if (bandera == 1)
-    {
-        cout << "Si Esta...";
-    }
-    else
-    {
-        cout << "No Esta...";
     }
 }
 void inOrder(Nodo* actual){
@@ -143,67 +49,68 @@ void preOrder(Nodo* actual){
     if(actual != NULL){
         inOrder(actual->izq);
         cout<<actual->dato<<" ";
-        preOrder
+        inOrder
     }
 }
-void posOrden(Nodo* actual){
+void posOrder(Nodo* actual){
     if(actual != NULL){
-        posOrden(actual->izq);
-        posOrden(actual->izq);
+        inOrder(actual->izq);
         cout<<actual->dato<<" ";
-      
+        inOrder
     }
 }
-int menu(){
-    int op;
-    cout<<"Ingresar Elemento";
-    cout<<"Ingresar Elemento";
-    cout<<"Ingresar Elemento";
-    cin>>op;
-    return op;
+void eliminar(nodo**actual,int num){
+    if(*actual==NULL)
+    cout<<"Elemento no es en el arbol";
+    else if((*actual)->dato < num)
+    eliminar(&(*actual)->der,num);
+    else if((actual))->dato > num)
+    eliminar(&(*actual)->izq,num);
+    else{
+        Nodo*aux = *actual;
+        if(aux->izq==NULL)
+        *actual=aux->der;
+        else if(aux->der==NULL)
+        *actual=aux->izq;
+        else
+        replazar(&aux);
+        delete(aux);
+    }
 }
-void eliminar(Nodo **cabeza, Nodo **final, int n)
-{
-    Nodo *aux;
-    Nodo *actual;
-    if (*cabeza == NULL)
-    {
-        cout << "No hay nada que eliminar...";
+void reemplazar(Nodo** actual){
+    Nodo* p = actual;
+    Nodo* a = *actual->izq;
+    while(a->der!NULL){
+        p=a;
+        a=a->der;
+        
     }
-    elseif(*cabeza->sig == NULL)
-    {
-        if (*cabeza->dato == n)
-        {
-            aux = *cabeza;
-            *cabeza = NULL;
-            *final == NULL;
-            delete (aux);
-        }
-        else
-        {
-            cout << "El elememto no existe...";
-        }
+    (*actual)->dato = a->dato;
+    if(p == *actual){
+        p->izq=a->izq
+    }else{
+        p->der=a->izq
     }
-    else
-    {
-        actual = *cabeza;
-        while ((actual->sig != NULL) && (actual->sig->dato != n))
-        {
-            actual = actual->sig;
+
+}
+
+int main(){
+    int op, num;
+    do{
+        op=menu();
+        switch (op) {
+            case 1:
+                cout<<"Ingrese dato: ";
+                cin>>num;
+                insertar(&raiz, num);
+                break;
+            case 2:
+                inOrden(raiz);
+                break;
+            default:
+                break;
         }
-        if (actual->sig == NULL)
-        {
-            cout << "El elememto no existe...";
-        }
-        else
-        {
-            aux = actual->sig;
-            actual->sig = aux->sig;
-            if (aux->sig == NULL)
-            {
-                *final == actual;
-                delete (aux);
-            }
-        }
-    }
+    }while(op!=0);
+    return 0;
+    
 }
