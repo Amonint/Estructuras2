@@ -29,4 +29,12 @@ public class MetodosEB {
             tail= tail.sig;
         }
     }
+    public void recorrer(Nodo head) {
+        Nodo actual=head;
+        while (actual!=null) {
+            System.out.println(actual.cliente.id+":"+actual.cliente.nombre);
+            actual=actual.sig;
+            
+        }
+    }
 }
