@@ -56,9 +56,9 @@ public class MetodosABB {
     }
     public void posOrden(NodoABB actual) {
         if (actual!=null) {
-            inOrden(actual.izq);
+            posOrden(actual.izq);
             System.out.println(actual.dato+" ");
-            inOrden(actual.der);
+            posOrden(actual.der);
         }
         
     }
