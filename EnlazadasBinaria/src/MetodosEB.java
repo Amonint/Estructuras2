@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-import enlazadasc.NodoABB;
+
 
 public class MetodosEB {
     Scanner entrada = new Scanner(System.in);
@@ -34,7 +34,29 @@ public class MetodosEB {
         while (actual!=null) {
             System.out.println(actual.cliente.id+":"+actual.cliente.nombre);
             actual=actual.sig;
-            
+
+        }
+    }
+    public void listaArbol() {
+        Nodo actual= head;
+        while (actual!=null) {
+            raiz = sembrar(actual.cliente.id,actual.cliente.nombre);
+            actual=actual.sig;
+        }
+    }
+    public NodoA sembrar(NodoA X, int _id, String _nombre ) {
+        if (x==null) {
+            NodoA nuevo = new NodoA(_id,_nombre);
+            return nuevo;
+        } else if(_id<X.cliente.id){
+            X.izq=sembrar(X, _id, _nombre);
+            return X;
+        }
+    }
+    public void inorden(NodoA actual) {
+        if (actual!=null) {
+            inorden(actual.izq);
+            System.out.println(actual.cliente.id+);
         }
     }
 }
