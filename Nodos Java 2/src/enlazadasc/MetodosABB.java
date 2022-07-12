@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class MetodosABB {
     Scanner entrada;
     NodoABB raiz;
-    public MetodosABB(){
-        this.raiz=null;
-        this.entrada=new Scanner(System.in);
+
+    public MetodosABB() {
+        this.raiz = null;
+        this.entrada = new Scanner(System.in);
     }
+
     public int menu() {
         int opc;
         System.out.println("Ingresar nuevo elemento [1]:");
@@ -19,47 +21,68 @@ public class MetodosABB {
 
         return opc;
     }
-    public NodoABB insertar(NodoABB actual,int num) {
-        if(actual==null){
+
+    public NodoABB insertar(NodoABB actual, int num) {
+        if (actual == null) {
             NodoABB nuevo = new NodoABB(num);
             return nuevo;
-        }else{
-            if (actual.dato==num) {
+        } else {
+            if (actual.dato == num) {
                 System.out.println("dato repetido");
-                
-            }else{
-                if (actual.dato>num) {
-                    actual.izq=insertar(actual.izq, num);
-                }else{
-                    actual.der=insertar(actual.der, num);
+
+            } else {
+                if (actual.dato > num) {
+                    actual.izq = insertar(actual.izq, num);
+                } else {
+                    actual.der = insertar(actual.der, num);
                 }
             }
         }
         return actual;
-        
+
     }
+
     public void preOrden(NodoABB actual) {
-        if (actual!=null) {
-            System.out.println(actual.dato+" ");
+        if (actual != null) {
+            System.out.println(actual.dato + " ");
             preOrden(actual.izq);
             preOrden(actual.der);
         }
-        
+
     }
+
     public void inOrden(NodoABB actual) {
-        if (actual!=null) {
+        if (actual != null) {
             inOrden(actual.izq);
-            System.out.println(actual.dato+" ");
+            System.out.println(actual.dato + " ");
             inOrden(actual.der);
         }
-        
+
     }
+
     public void posOrden(NodoABB actual) {
-        if (actual!=null) {
+        if (actual != null) {
             posOrden(actual.izq);
-            System.out.println(actual.dato+" ");
+            System.out.println(actual.dato + " ");
             posOrden(actual.der);
         }
-        
+
+    }
+
+    public void Eliminar(NodoABB actual, int num) {
+         actual = null;
+
+        if (raiz != null) {
+            actual = raiz.buscar(num);
+
+        }
+
+        if (actual != null) {
+            // Caso 1: el árbol no es vacío
+            raiz = raiz.eliminar(num);
+            peso--;
+        }
+
+        return actual;
     }
 }
