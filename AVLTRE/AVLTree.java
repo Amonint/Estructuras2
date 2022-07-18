@@ -1,11 +1,12 @@
 public class MetodosAVL {
-    MetodosAvlT myArbol= new MetodosAvlT();
+    public static void main(String[] args) {
+      MetodosAvlT myArbol= new MetodosAvlT();
     int opc, num;
-    do{
+        do{
         opc=myArbol.menu();
         switch (opc) {
             case 1:
-                System.out.println("diguiotaadas");
+                System.out.println("Diguite el numero a ingresar 1");
                 num= myArbol.entrada.nextInt();
                 myArbol.raiz= myArbol.insertaEquilibrado(myArbol.raiz,num);
                 break;
@@ -14,9 +15,14 @@ public class MetodosAVL {
                 System.out.println("\n");
                 break;
         
-                break;
+                default: break;
                 
+        }while (opc !=0) {
+            
         }
-    }
+     
     
+}    
+    
+}    
 }
