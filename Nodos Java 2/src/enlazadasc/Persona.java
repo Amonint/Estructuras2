@@ -18,6 +18,7 @@ public class Persona {
         this.notas[0] = n1;
         this.notas[1] = n2;
         this.notas[2] = n3;
+        /* actu */
     }
 
 }
